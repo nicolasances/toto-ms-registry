@@ -18,3 +18,11 @@ with the following payload:
     endpoint: "https://...."    // Endpoint of the microservice: the base URL only, but including any configured base path (e.g. https://toto-ms-ex1-domain.com/ex1)
 }
 </code>
+
+## Retrieving endpoints
+That's simple: 
+
+<code>
+GET <registry-endpoint>/apis
+</code>
+
