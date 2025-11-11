@@ -1,7 +1,7 @@
 {
-  "name": "toto-node-template",
+  "name": "toto-ms-registry",
   "version": "1.0.0",
-  "description": "Template for Toto NodeJS Microservices",
+  "description": "Toto Registry",
   "main": "index.js",
   "scripts": {
     "start:dev": "npx nodemon",
