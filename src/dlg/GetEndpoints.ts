@@ -1,4 +1,3 @@
-import { exec } from "child_process";
 import { Request } from "express";
 import { ExecutionContext, TotoDelegate, UserContext } from "toto-api-controller";
 import { APIRegistry } from "../store/APIRegistry";
