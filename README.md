@@ -15,7 +15,7 @@ with the following payload:
 <code>
 {
     apiName: "toto-ms-ex1",     // Logical name of the microservice
-    endpoint: "https://...."    // Endpoint of the microservice: the base URL only, but including any configured base path (e.g. https://toto-ms-ex1-domain.com/ex1)
+    endpointURL: "https://...."    // Endpoint of the microservice: the base URL only, but including any configured base path (e.g. https://toto-ms-ex1-domain.com/ex1)
 }
 </code>
 
