@@ -12,17 +12,30 @@ POST <registry-endpoint>/apis
 
 with the following payload: 
 
-<code>
+```
 {
     apiName: "toto-ms-ex1",     // Logical name of the microservice
     endpointURL: "https://...."    // Endpoint of the microservice: the base URL only, but including any configured base path (e.g. https://toto-ms-ex1-domain.com/ex1)
 }
-</code>
+```
+
+An alternative way of registering, without passing `endpointURL` is to provide both of the following: 
+* `hyperscaler` (either aws or gcp)
+* `basePath` if any
+
+```
+{
+    apiName: "toto-ms-ex1", 
+    hyperscaler: "aws", 
+    basePath: "ex1"
+}
+```
+The endpoint will then be constructed automatically by the Registry.
 
 ## Retrieving endpoints
 That's simple: 
 
-<code>
+```
 GET <registry-endpoint>/apis
-</code>
+```
 
