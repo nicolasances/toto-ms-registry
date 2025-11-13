@@ -10,12 +10,22 @@ export class ControllerConfig extends TotoControllerConfig {
 
     mongoUser: string | undefined;
     mongoPwd: string | undefined;
+    awsDomainName: string | undefined;
+    gcpCloudRunSuffix: string | undefined;
 
     private static mongoClient: MongoClient | null = null;
     private static mongoClientPromise: Promise<MongoClient> | null = null;
 
     async load(): Promise<any> {
 
+        // Load needed environment variables
+        this.awsDomainName = process.env.AWS_DOMAIN_NAME;
+        this.gcpCloudRunSuffix = process.env.GCP_CLOUD_RUN_SUFFIX;
+
+        this.logger!.compute("INIT", `AWS_DOMAIN_NAME: ${this.awsDomainName}`);
+        this.logger!.compute("INIT", `GCP_CLOUD_RUN_SUFFIX: ${this.gcpCloudRunSuffix}`);
+
+        // Load secrets 
         let promises = [];
 
         const secretsManager = new SecretsManager(this.hyperscaler == 'local' ? 'aws' : this.hyperscaler, this.env, this.logger!);
