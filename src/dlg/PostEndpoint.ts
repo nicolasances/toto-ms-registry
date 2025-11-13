@@ -23,13 +23,14 @@ export class PostEndpoint implements TotoDelegate {
             const basePath = req.body.basePath;
 
             if (!hyperscaler) throw new ValidationError(400, 'Either endpointURL or hyperscaler must be provided');
-            if (!basePath) throw new ValidationError(400, 'Either endpointURL or basePath must be provided');
 
             if (hyperscaler === 'aws') {
-                endpointURL = `${config.awsDomainName}/${basePath}`;
+                if (basePath) endpointURL = `https://${config.awsDomainName}/${basePath}`;
+                else endpointURL = `https://${config.awsDomainName}`;
             }
             else if (hyperscaler == 'gcp') {
-                endpointURL = `https://${apiName}-${config.gcpCloudRunSuffix}/${basePath}`;
+                if (basePath) endpointURL = `https://${apiName}-${config.gcpCloudRunSuffix}/${basePath}`;
+                else endpointURL = `https://${apiName}-${config.gcpCloudRunSuffix}`;
             }
 
         }
