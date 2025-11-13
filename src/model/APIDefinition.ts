@@ -15,6 +15,10 @@ export class APIDefinition {
         return new APIDefinition(doc.apiName, doc.endpointURL);
     }
 
+    /**
+     * @param body HTTP body
+     * @returns 
+     */
     static fromHTTPBody(body: any) {
 
         // Validate
