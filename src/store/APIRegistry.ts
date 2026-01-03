@@ -37,7 +37,7 @@ export class APIRegistry {
 
         const apisCollection = db.collection(this.config.getCollections().apis);
 
-        const apis = await apisCollection.find({}).toArray();
+        const apis = await apisCollection.find({}).toArray() as any[];
 
         return apis.map(api => APIDefinition.fromMongoDoc(api));
     }
